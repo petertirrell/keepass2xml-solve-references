@@ -189,4 +189,6 @@ with open('%s.solved' % filepath, 'w') as f:
 	f.write("\n".join(output))
 
 print('')
+print('Changes saved in: %s.solved' % filepath)
+print('')
 print('DONE')
