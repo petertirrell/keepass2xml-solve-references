@@ -11,6 +11,7 @@
 
 import re
 import sys
+import codecs
 
 # Pattern to detect base64-encoded UUIDs in XML file
 pattern_uuid = re.compile(r'<UUID>([^<]+)</UUID>')
@@ -22,7 +23,7 @@ pattern_field_value = re.compile(r'<Value[^>]*>([^<]+)</Value>')
 
 # Convert reference string given in HEX to base64
 def convert_uuid_to_base64(value):
-	return value.decode('hex') .encode('base64')
+	return codecs.encode(codecs.decode(value, 'hex'), 'base64').decode()
 
 
 # Extract username and password of given references from XML tree
